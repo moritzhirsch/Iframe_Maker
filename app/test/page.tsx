@@ -8,10 +8,10 @@ export default function Page() {
       role="dialog"
       aria-modal="true"
       aria-label="Muziekcentrum De Bijloke"
-      className="mx-auto max-w-[880px] rounded-2xl shadow-2xl bg-[#1a0a52] text-[#eae7f2] p-8 md:p-10 my-6"
+      className="w-full min-h-dvh rounded-none md:rounded-2xl bg-[#1a0a52] text-[#eae7f2] p-6 md:p-10"
     >
       {/* top: image + copy */}
-      <div className="grid grid-cols-[300px_1fr] gap-6 items-start">
+      <div className="grid grid-cols-[300px_1fr] gap-8 items-start">
         <img
           src="Bijloke\11_MuziekcentrumDB_Artiesteningang.jpg"
           alt="Muziekcentrum De Bijloke exterior"
