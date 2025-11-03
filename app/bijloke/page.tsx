@@ -1,4 +1,4 @@
-// app/test/page.tsx
+// app/bijloke/page.tsx
 import type { Metadata } from "next";
 import Image from "next/image";
 
@@ -38,7 +38,7 @@ export default function Page() {
         {/* 2) Location text */}
         <section aria-labelledby="loc-title" className="max-w-prose">
           <h1 id="loc-title" className="sr-only">STAM — Entrance hall</h1>
-          <p className="text-[16px] md:text-[17px] leading-[1.65]">
+          <p className="text-[16px] md:text-[17px] leading-[1.65] font-medium">
             Het STAM is het Gentse stadsmuseum dat de geschiedenis van Gent
             brengt en je (nog) warm(er) maakt voor deze hedendaagse stad met
             een eeuwenoude geschiedenis.
@@ -46,13 +46,13 @@ export default function Page() {
         </section>
 
         {/* 3) Historical header */}
-        <h2 className="text-[18px] md:text-[20px] font-semibold tracking-[0.2px]">
+        <h2 aria-labelledby="historical"
+          className="text-[18px] md:text-[20px] font-semibold tracking-[0.2px]">
           Historische info: Museumtuin
         </h2>
 
         {/* 4–5) Historical block: mobile stacked, desktop split */}
         <section
-          aria-labelledby="historical"
           className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start"
         >
           {/* Historical image */}
@@ -70,7 +70,7 @@ export default function Page() {
 
           {/* Historical text */}
           <div className="order-2 md:order-none self-center">
-            <p id="historical" className="text-[16px] md:text-[17px] leading-[1.7] max-w-prose">
+            <p id="historical" className="text-[16px] md:text-[17px] leading-[1.7] font-medium max-w-prose">
               In de museumtuin, tussen het STAM en de Kunstenbibliotheek, kan je
               kruiden plukken en kleine groenten oogsten. De plukbakken verwijzen
               naar de moestuin van de cisterciënzerzusters. Wist je dat de zusters
