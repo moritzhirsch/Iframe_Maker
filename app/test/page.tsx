@@ -1,55 +1,84 @@
 // app/test/page.tsx
+import type { Metadata } from "next";
 import Image from "next/image";
+
 export const revalidate = 0;
+
+// Keep this popup out of search engines
+export const metadata: Metadata = {
+  title: "STAM — Entrance hall (Popup)",
+  robots: {
+    index: false,
+    follow: false,
+    nocache: true,
+    googleBot: { index: false, follow: false, noimageindex: true },
+  },
+};
 
 export default function Page() {
   return (
     <main
-      role="dialog"
-      aria-modal="true"
-      aria-label="Muziekcentrum De Bijloke"
-      className="w-full min-h-dvh rounded-none md:rounded-2xl bg-[#1a0a52] text-[#eae7f2] p-6 md:p-10"
+      aria-label="STAM — Entrance hall"
+      className="w-full min-h-dvh bg-[#1a0a52] text-[#eae7f2]"
     >
-      {/* top: image + copy */}
-      <div className="grid grid-cols-[300px_1fr] gap-8 items-start">
-        <img
-          src="Bijloke\11_MuziekcentrumDB_Artiesteningang.jpg"
-          alt="Muziekcentrum De Bijloke exterior"
-          className="w-full max-w-[300px] h-[30vh] rounded-2xl shadow-2xl object-cover"
-        />
-
-        <div>
-          <h1 className="text-[20px] md:text-[22px] font-bold tracking-[0.2px] mb-4">
-            Muziekcentrum De Bijloke
-          </h1>
-
-          <p className="max-w-[560px] text-[16px] leading-[1.65] opacity-95 mb-6">
-            presents classical, jazz, contemporary music and festivals in the oldest concert hall in the world!
-          </p>
-
-          <div className="mb-10">
-            <a
-              href="https://www.debijloke.be"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block rounded-full px-4 py-2 font-semibold border border-white/40 bg-white/20 text-[#eef] backdrop-blur-sm transition
-                         hover:-translate-y-[1px] hover:bg-white/30 hover:border-white/60"
-            >
-              Website Muziekcentrum De Bijloke
-            </a>
-          </div>
+      {/* padded content area -> gives breathing room around the 'full-width' image */}
+      <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 md:px-10 py-6 md:py-10 space-y-8">
+        {/* 1) Hero image: full width inside the content area (not edge-to-edge modal) */}
+        <div className="relative w-full aspect-[16/9] overflow-hidden rounded-2xl shadow-2xl">
+          <Image
+            src="/Bijloke/11_MuziekcentrumDB_Artiesteningang.jpg"
+            alt="STAM entrance hall with city map installation"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 900px"
+            className="object-cover"
+            priority
+          />
         </div>
-      </div>
 
-      <section aria-labelledby="historical">
-        <h2 id="historical" className="text-[17px] font-semibold mt-2 mb-4">
-          Historical Info: The Squat House ‘Kraakhuis’:
+        {/* 2) Location text */}
+        <section aria-labelledby="loc-title" className="max-w-prose">
+          <h1 id="loc-title" className="sr-only">STAM — Entrance hall</h1>
+          <p className="text-[16px] md:text-[17px] leading-[1.65]">
+            Het STAM is het Gentse stadsmuseum dat de geschiedenis van Gent
+            brengt en je (nog) warm(er) maakt voor deze hedendaagse stad met
+            een eeuwenoude geschiedenis.
+          </p>
+        </section>
+
+        {/* 3) Historical header */}
+        <h2 className="text-[18px] md:text-[20px] font-semibold tracking-[0.2px]">
+          Historische info: Museumtuin
         </h2>
-        <p className="max-w-[560px] text-[16px] leading-[1.65]">
-          The Squat House was rebuilt at the beginning of the 16th century as a small infirmary of the Bijloke Hospital.
-          Today it is an intimate concert hall.
-        </p>
-      </section>
+
+        {/* 4–5) Historical block: mobile stacked, desktop split */}
+        <section
+          aria-labelledby="historical"
+          className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 items-start"
+        >
+          {/* Historical image */}
+          <div className="order-1 md:order-none">
+            <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+              <Image
+                src="/Bijloke/poi_museumtuin.jpg"
+                alt="De Museumtuin met zicht op de kloostergevel"
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+          </div>
+
+          {/* Historical text */}
+          <div className="order-2 md:order-none self-center">
+            <p id="historical" className="text-[16px] md:text-[17px] leading-[1.7] max-w-prose">
+              In de museumtuin, tussen het STAM en de Kunstenbibliotheek, kan je
+              kruiden plukken en kleine groenten oogsten. De plukbakken verwijzen
+              naar de moestuin van de cisterciënzerzusters. Wist je dat de zusters
+              tot 2001 hier hun eigen groenten teelden?
+            </p>
+          </div>
+        </section>
+      </div>
     </main>
   );
 }
