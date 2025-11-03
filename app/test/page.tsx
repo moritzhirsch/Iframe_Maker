@@ -59,7 +59,7 @@ export default function Page() {
           <div className="order-1 md:order-none">
             <div className="relative w-full aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
               <Image
-                src="/Bijloke/poi_museumtuin.jpg"
+                src="/Bijloke/POI_Museumtuin.jpg"
                 alt="De Museumtuin met zicht op de kloostergevel"
                 fill
                 sizes="(max-width: 768px) 100vw, 50vw"
