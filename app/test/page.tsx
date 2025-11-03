@@ -19,7 +19,7 @@ export default function Page() {
   return (
     <main
       aria-label="STAM — Entrance hall"
-      className="w-full min-h-dvh bg-[#1a0a52] text-[#eae7f2]"
+      className="w-full min-h-dvh bg-[#1a0a52] text-[#fff]"
     >
       {/* padded content area -> gives breathing room around the 'full-width' image */}
       <div className="mx-auto w-full max-w-5xl px-4 sm:px-6 md:px-10 py-6 md:py-10 space-y-8">
