@@ -9,6 +9,7 @@ import keystaticConfig from "../../../keystatic.config";
 
 const reader = createReader(process.cwd(), keystaticConfig);
 export const revalidate = 0;
+export const dynamic = 'force-dynamic';
 
 export const metadata: Metadata = {
   title: "Bijloke Popup",
@@ -34,6 +35,8 @@ export default async function Location({
   const lang: 'nl' | 'en' = requestedLang === 'en' ? 'en' : 'nl';
   const fallbackLang: 'nl' | 'en' = lang === 'nl' ? 'en' : 'nl';
 
+  // Helpful debugging in production: list available slugs
+  const availableSlugs = await reader.collections.locations.list();
   const location = await reader.collections.locations.read(slug);
   if (!location) notFound();
 
