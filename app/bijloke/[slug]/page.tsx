@@ -10,6 +10,7 @@ import keystaticConfig from "../../../keystatic.config";
 const reader = createReader(process.cwd(), keystaticConfig);
 export const revalidate = 0;
 export const dynamic = 'force-dynamic';
+export const runtime = 'nodejs';
 
 export const metadata: Metadata = {
   title: "Bijloke Popup",
