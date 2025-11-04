@@ -37,8 +37,12 @@ export default async function Location({
 
   // Helpful debugging in production: list available slugs
   const availableSlugs = await reader.collections.locations.list();
+  console.log('[bijloke] requested slug:', slug, 'available:', availableSlugs);
   const location = await reader.collections.locations.read(slug);
-  if (!location) notFound();
+  if (!location) {
+    console.error('[bijloke] not found for slug:', slug);
+    notFound();
+  }
 
   // --- Title & alt text (respect ?lang, fallback to other, then slug)
   const titlePreferred = lang === 'nl' ? location.title?.nl : location.title?.en;
